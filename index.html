@@ -1,163 +1,203 @@
+
 <script>
-    function update() {
-      document.getElementById('text').value = cookiecount;
-      document.title = cookiecount + " Cookies";
+  function update() {
+    document.getElementById("text").value = cookiecount;
+    document.title = cookiecount + " Cookies";
 
-      document.getElementById('amountMultiplier').innerHTML = "Multiplier Upgrade x" + (multiplier+1);
-      document.getElementById('amountMultiplier2').innerHTML = "x" + (multiplier+1);
-      document.getElementById('costMultiplier').innerHTML = ((multiplier+1) * 100) + " Cookies";
-      document.getElementById('currentMultiplier').innerHTML = "Your Current Multiplier is x" + (multiplier);
+    document.getElementById("amountMultiplier").innerHTML =
+      "Multiplier Upgrade x" + (multiplier + 1);
+    document.getElementById("amountMultiplier2").innerHTML =
+      "x" + (multiplier + 1);
+    document.getElementById("costMultiplier").innerHTML =
+      (multiplier + 1) * 100 + " Cookies";
+    document.getElementById("currentMultiplier").innerHTML =
+      "Your Current Multiplier is x" + multiplier;
 
-      document.getElementById('amountAutoClick').innerHTML = "You Own " + autoClick + " Auto Clickers";
-      document.getElementById('costAutoClick').innerHTML = ((autoClick+1) * 12) + " cookies";
+    document.getElementById("amountAutoClick").innerHTML =
+      "You Own " + autoClick + " Auto Clickers";
+    document.getElementById("costAutoClick").innerHTML =
+      (autoClick + 1) * 12 + " cookies";
 
-      document.getElementById('amountFarms').innerHTML = "You Own " + farms + " Farms";
-      document.getElementById('costFarm').innerHTML = ((farms+1) * 15) + " Cookies";
+    document.getElementById("amountFarms").innerHTML =
+      "You Own " + farms + " Farms";
+    document.getElementById("costFarm").innerHTML =
+      (farms + 1) * 15 + " Cookies";
 
-      document.getElementById('cookiespersecond').innerHTML = "You are gaining " + (((autoClick)+(farms*2))*multiplier)+" Cookies per/s";
-      document.getElementById('cookiesperclick').innerHTML = "You are gaining " + ((Click+cursors) * multiplier) + " Cookies Per Click"; 
+    document.getElementById("cookiespersecond").innerHTML =
+      "You are gaining " +
+      (autoClick + farms * 2) * multiplier +
+      " Cookies per/s";
+    document.getElementById("cookiesperclick").innerHTML =
+      "You are gaining " +
+      (Click + cursors) * multiplier +
+      " Cookies Per Click";
 
-      document.getElementById('costCursor').innerHTML = ((cursors+1) * 50) + " Cookies";
-      document.getElementById('amountCursor').innerHTML = "You Own " + cursors + " Cursors"
-    }
+    document.getElementById("costCursor").innerHTML =
+      (cursors + 1) * 50 + " Cookies";
+    document.getElementById("amountCursor").innerHTML =
+      "You Own " + cursors + " Cursors";
+  }
 
-    var multiplier = 1;
-    var cookiecount = 0;
-    var autoClick = 0;
-    var farms = 0;
-    var cursors = 0;
-    var Click = 1;
+  var multiplier = 1;
+  var cookiecount = 0;
+  var autoClick = 0;
+  var farms = 0;
+  var cursors = 0;
+  var Click = 1;
 
-
-    function timer(){
-        cookiecount = cookiecount + autoClick*multiplier;
-        cookiecount = cookiecount + farms*2*multiplier;
-        update()
-    }
-    setInterval(timer, 1000);
-  </script>
-  <html>
+  function timer() {
+    cookiecount = cookiecount + autoClick * multiplier;
+    cookiecount = cookiecount + farms * 2 * multiplier;
+    update();
+  }
+  setInterval(timer, 1000);
+</script>
+<html>
   <head>
     <title>0 Cookies</title>
-    <link rel="shortcut icon" type="image/jpg" href="Cookie.jpg"/>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" type="image/jpg" href="Cookie.jpg" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/kursor/dist/kursor.css" />
   </head>
   <body>
-    
     <p id="cookiespersecond">You are gaining 0 Cookies per/s</p>
     <p id="cookiesperclick">You are gaining 1 Cookies Per Click</p>
-  
-    <a href=# onclick="add()"><img src="Cookie.jpg" width="300px" height="300px" class="cookie"></a>
-    <br><br>
+
+    <a href="#" onclick="add()"
+      ><img src="Cookie.jpg" width="300px" height="300px" class="cookie"
+    /></a>
+    <br /><br />
     You got:
-    <input type="text" id="text" disabled style= text-align:center value=0>
+    <input type="text" id="text" disabled style="text-align:center" value="0" />
     <script>
       function add() {
-        cookiecount = cookiecount + ((Click+cursors) * multiplier)
-        update()
+        cookiecount = cookiecount + (Click + cursors) * multiplier;
+        update();
       }
     </script>
     Cookies
-    <br><br>
-  
+    <br /><br />
+
     <button><a href="#" onClick="save()">Save</a></button>
     <button><a href="#" onclick="load()">Load</a></button>
-        <br><br>
-        <p id="autoclickertext"> Autoclickers </p>
-        <p id="clicktext"> More Cookies Per Click </p>
-        <p id="multipliers"> Multipliers </p>
+    <br /><br />
+    <p id="autoclickertext">Autoclickers</p>
+    <p id="clicktext">More Cookies Per Click</p>
+    <p id="multipliers">Multipliers</p>
 
-        <div class="Multi">
-        <p id="amountMultiplier">Multiplier Upgrade x2</p>
-        <button><a href="#" onclick="buyMultiplier()"><span id="amountMultiplier2">x2</span></a></button>
-        <p id="costMultiplier">200 Cookies</p>
-        <p id="currentMultiplier">Your Current Multiplier is x1</p>
-        </div> 
+    <div class="Multi">
+      <p id="amountMultiplier">Multiplier Upgrade x2</p>
+      <button>
+        <a href="#" onclick="buyMultiplier()"
+          ><span id="amountMultiplier2">x2</span></a
+        >
+      </button>
+      <p id="costMultiplier">200 Cookies</p>
+      <p id="currentMultiplier">Your Current Multiplier is x1</p>
+    </div>
 
-        <div class="autoclicker">
-        <p> Buy 1 Auto Clicker</p>
-        <button><a href="#" onclick="buyAutoClick()"><img src="mouse.png" width="30px" height="40px">
-        </a></button>
-        <p id="costAutoClick"> 12 Cookies </p>
-        <p id="amountAutoClick">You own 0 Auto Clickers</p>
-        </div>
+    <div class="autoclicker">
+      <p>Buy 1 Auto Clicker</p>
+      <button>
+        <a href="#" onclick="buyAutoClick()"
+          ><img src="mouse.png" width="30px" height="40px" />
+        </a>
+      </button>
+      <p id="costAutoClick">12 Cookies</p>
+      <p id="amountAutoClick">You own 0 Auto Clickers</p>
+    </div>
 
-        <br>
-        <div class="farm">
-        <p> Buy 1 Farm </p>
-        <button><a href="#" onclick="buyFarm()"><img src="Farm.png" width="50px" height="50px"></a></button>
-        <p id="costFarm"> 15 Cookies </p>
-        <p id="amountFarms"> You Own 0 Farms </p>
-        </div>
+    <br />
+    <div class="farm">
+      <p>Buy 1 Farm</p>
+      <button>
+        <a href="#" onclick="buyFarm()"
+          ><img src="Farm.png" width="50px" height="50px"
+        /></a>
+      </button>
+      <p id="costFarm">15 Cookies</p>
+      <p id="amountFarms">You Own 0 Farms</p>
+    </div>
 
-        <div class="cursor">
-          <p> Buy 1 Cursor(+1 Cookies Per Click)</p>
-          <button><a href="#" onclick="buyCursor()"><img src="Cursor.png" width="50px" height="50px"></a></button>
-          <p id="costCursor"> 50 Cookies </p>
-          <p id="amountCursor"> You Own 0 Cursors </p>
-        </div>
+    <div class="cursor">
+      <p>Buy 1 Cursor(+1 Cookies Per Click)</p>
+      <button>
+        <a href="#" onclick="buyCursor()"
+          ><img src="Cursor.png" width="50px" height="50px"
+        /></a>
+      </button>
+      <p id="costCursor">50 Cookies</p>
+      <p id="amountCursor">You Own 0 Cursors</p>
+    </div>
 
     <script>
-        function save() {
-          localStorage.setItem("cookiecount", cookiecount);
-          localStorage.setItem("autoClick", autoClick);
-          localStorage.setItem("farms", farms);
-          localStorage.setItem("multiplier", multiplier);
-          localStorage.setItem("Cursors", cursors);
+      function save() {
+        localStorage.setItem("cookiecount", cookiecount);
+        localStorage.setItem("autoClick", autoClick);
+        localStorage.setItem("farms", farms);
+        localStorage.setItem("multiplier", multiplier);
+        localStorage.setItem("Cursors", cursors);
+      }
+      function load() {
+        cookiecount = localStorage.getItem("cookiecount");
+        cookiecount = parseInt(cookiecount);
+        autoClick = localStorage.getItem("autoClick");
+        autoClick = parseInt(autoClick);
+        farms = localStorage.getItem("farms");
+        farms = parseInt(farms);
+        multiplier = localStorage.getItem("multiplier");
+        multiplier = parseInt(multiplier);
+        cursors = localStorage.getItem("Cursors");
+        cursors = parseInt(cursors);
+        update();
+      }
+      function buyAutoClick() {
+        if (cookiecount >= (autoClick + 1) * 12) {
+          cookiecount = cookiecount - (autoClick + 1) * 12;
+          autoClick = autoClick + 1;
+          update();
+        } else {
+          alert("You Don't Have Enough Cookies");
         }
-        function load() {
-          cookiecount = localStorage.getItem("cookiecount");
-          cookiecount = parseInt(cookiecount);
-          autoClick = localStorage.getItem("autoClick");
-          autoClick = parseInt(autoClick);
-          farms = localStorage.getItem("farms");
-          farms = parseInt(farms);
-          multiplier = localStorage.getItem("multiplier");
-          multiplier = parseInt(multiplier);
-          cursors = localStorage.getItem("Cursors");
-          cursors = parseInt(cursors);
-          update()
-        }
-        function buyAutoClick() {
-          if(cookiecount >= ((autoClick+1) * 12)) {
-            cookiecount = cookiecount - ((autoClick+1) * 12);
-            autoClick = autoClick + 1;
-            update()
-          }else{
-            alert("You Don't Have Enough Cookies");
-          }
-        }
+      }
 
-        function buyFarm() {
-          if(cookiecount >= ((farms+1) * 15)) {
-            cookiecount = cookiecount - ((farms+1) * 15);
-            farms = farms + 1;
-            update()
-          }else{
-            alert("You Don't Have Enough Cookies");
-          }
+      function buyFarm() {
+        if (cookiecount >= (farms + 1) * 15) {
+          cookiecount = cookiecount - (farms + 1) * 15;
+          farms = farms + 1;
+          update();
+        } else {
+          alert("You Don't Have Enough Cookies");
         }
-  
-        function buyMultiplier() {
-          if (cookiecount >= ((multiplier+1) * 100)){
-            cookiecount = cookiecount - ((multiplier+1) * 100);
-            multiplier = multiplier + 1;
-            update()
-          }else {
-            alert("You Don't Have Enough Cookies");
-          }
-        }
+      }
 
-        function buyCursor(){
-          if (cookiecount >= ((cursors+1) * 50)){
-            cookiecount = cookiecount - ((cursors+1) * 50);
-            cursors = cursors + 1;
-            update()
-          }else{
-            alert("You Don't Have Enough Cookies");
-          }
+      function buyMultiplier() {
+        if (cookiecount >= (multiplier + 1) * 100) {
+          cookiecount = cookiecount - (multiplier + 1) * 100;
+          multiplier = multiplier + 1;
+          update();
+        } else {
+          alert("You Don't Have Enough Cookies");
         }
+      }
 
-      </script>  
+      function buyCursor() {
+        if (cookiecount >= (cursors + 1) * 50) {
+          cookiecount = cookiecount - (cursors + 1) * 50;
+          cursors = cursors + 1;
+          update();
+        } else {
+          alert("You Don't Have Enough Cookies");
+        }
+      }
+    </script>
+    <!-- Kursor-->
+    <script src="https://unpkg.com/kursor"></script>
+    <script>
+      new kursor({
+        type: 1,
+      });
+    </script>
   </body>
-  </html>
+</html>
