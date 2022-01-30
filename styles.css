@@ -1,0 +1,68 @@
+.cookie{
+    -moz-window-dragging: none;
+    -webkit-user-drag: none;
+}
+
+::selection{
+    background-color: cyan;
+    color: black;
+}
+
+.autoclicker{
+    right: 55%;
+    top: 5%;
+    transform: translate(55%,5%);
+    position: absolute;
+}
+
+.farm{
+    right: 30%;
+    top: 5%;
+    transform: translate(30%, 5%);
+    position: absolute;
+}
+
+.Multi{
+    right: 45%;
+    top: 60%;
+    transform: translate(45%, 60%);
+    position: absolute;
+}
+
+.Cursor{
+    right: 55%;
+    top: 35%;
+    transform: translate(55%, 30%);
+    position: absolute;
+}
+
+#autoclickertext {
+    font-family: Architects Daughter;
+    right: 45%;
+    top: 0%;
+    transform: translate(50%, 0%);
+    position: absolute;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#clicktext{
+    font-family: Architects Daughter;
+    right: 45%;
+    top: 33%;
+    transform: translate(45%, 33%);
+    position: absolute;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#multipliers{
+    font-family: Architects Daughter;
+    right: 45%;
+    top: 64%;
+    transform: translate(45%, 64%);
+    position: absolute;
+    font-size: 20px;
+    font-weight: bold;
+}
+
